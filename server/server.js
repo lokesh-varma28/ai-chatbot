@@ -18,11 +18,21 @@ const errorMiddleware = require('./src/middleware/errorMiddleware');
 
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://ai-chatbot-f3t9.vercel.app',
+];
+
+if (env.FRONTEND_URL && !allowedOrigins.includes(env.FRONTEND_URL)) {
+  allowedOrigins.push(env.FRONTEND_URL);
+}
+
 // Security and utility middlewares
 app.use(helmet());
 app.use(
   cors({
-    origin: env.FRONTEND_URL || 'http://localhost:5173',
+    origin: allowedOrigins,
     credentials: true,
   })
 );
