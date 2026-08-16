@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Use VITE_API_BASE_URL for production or fallback to localhost in development
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ' https://ai-chatbot-server-l1ti.onrender.com/api/v1';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ai-chatbot-server1.onrender.com/api/v1';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
